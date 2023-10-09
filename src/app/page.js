@@ -147,7 +147,7 @@ export default function App() {
                                         <tr>
                                             <th scope="col" className="px-6 py-4">Country Code</th>
                                             <th scope="col" className="px-6 py-4">Name</th>
-                                            <th scope="col" className="px-6 py-4">Email</th>
+                                            <th scope="col" className="px-6 py-4">Email (sorted by)</th>
                                             <th scope="col" className="px-6 py-4">Password</th>
                                         </tr>
                                     </thead>
