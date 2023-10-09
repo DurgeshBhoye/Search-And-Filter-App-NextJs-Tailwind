@@ -15,7 +15,7 @@ export default function App() {
 
     useEffect(() => {
         if (localStorage.getItem("userData")) {
-            const storedData = JSON.parse(localStorage.getItem("userData"));
+            const storedData = JSON.parse(localStorage.getItem("userData"));    // get data from localStorage 
             setUserInfo(storedData);
         }
     }, [])
@@ -27,7 +27,7 @@ export default function App() {
         const user = { name, countryCode, email, password }
 
         setUserInfo([...userInfo, user]);
-        localStorage.setItem("userData", JSON.stringify([...userInfo, user]));
+        localStorage.setItem("userData", JSON.stringify([...userInfo, user]));    // add user to localStorage 
         
         setName("");
         setCountryCode("");
@@ -38,16 +38,18 @@ export default function App() {
 
     const handleClear = () => {
         setUserInfo([]);
-        localStorage.removeItem("userData");
+        localStorage.removeItem("userData");         // clear data from localStorage 
     }
 
 
     const filteredItems = useMemo(() => {
         if (!query) {
+            // sorted by email
             const sortedUserInfo = userInfo.sort((a, b) => a.email.localeCompare(b.email));
             return sortedUserInfo
         }
         return userInfo.filter(names => {
+            // filter by user names (query)
             return names.name.toLowerCase().includes(query.toLowerCase())
         })
 
